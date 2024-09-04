@@ -22,8 +22,8 @@ echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.apt/usr/lib/libreoffice/pr
 echo 'export PYTHONPATH="/app/.apt/usr/lib/python3/dist-packages/"' >>  $PROFILE_PATH
 
 # Corrected Shebang line for Python 3.10
-SHEBANG="#!\/usr\/bin\/python3.10"
-sed -i "1s/.*/$SHEBANG/" $APT_DIR/usr/bin/unoconv
+SHEBANG="#!/usr/bin/python3.10"
+sed -i "1s|^.*$|$SHEBANG|" $APT_DIR/usr/bin/unoconv
 
 cd $APT_DIR/usr/lib/x86_64-linux-gnu
 ln -sv ../libreoffice/program/*.so .
